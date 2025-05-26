@@ -1,0 +1,43 @@
+{
+  "name": "@sozialhelden/core",
+  "version": "1.0.0",
+  "description": "Core utilities shared by different sozialhelden projects",
+  "author": "Sozialhelden e.V. <developers@sozialhelden.de>",
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build": "rimraf dist && vite build",
+    "lint": "npx biome lint",
+    "lint:fix": "npx biome lint --write",
+    "format": "npx biome format",
+    "format:fix": "npx biome format --write"
+  },
+  "dependencies": {
+    "@mapbox/maki": "^8.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/react": "^19.1.5",
+    "rimraf": "^6.0.1",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-svgr": "^4.3.0",
+    "vitest": "^3.1.4"
+  }
+}
