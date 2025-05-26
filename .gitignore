@@ -1,0 +1,25 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# IntelliJ IDEA files
+*.iml
+.idea
+
+# Misc
+.env*
+!.env.example
+npm-debug.log*
+
+# Build outputs
+dist
+*.tgz
+tsconfig.tsbuildinfo
