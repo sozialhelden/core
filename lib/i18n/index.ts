@@ -1,1 +1,1 @@
-export { setTranslator } from "./utils/translator"
+export { setTranslator } from "./utils/translator";
