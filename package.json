@@ -4,8 +4,14 @@
   "description": "Core utilities shared by different sozialhelden projects",
   "author": "Sozialhelden e.V. <developers@sozialhelden.de>",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "exports": {
@@ -22,7 +28,8 @@
     "lint": "npx biome lint",
     "lint:fix": "npx biome lint --write",
     "format": "npx biome format",
-    "format:fix": "npx biome format --write"
+    "format:fix": "npx biome format --write",
+    "release": "semantic-release"
   },
   "dependencies": {
     "@mapbox/maki": "^8.2.0"
@@ -33,8 +40,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/react": "^19.1.5",
     "rimraf": "^6.0.1",
+    "semantic-release": "^24.2.5",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-svgr": "^4.3.0",
