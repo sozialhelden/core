@@ -1,8 +1,8 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
-import svgr from "vite-plugin-svgr";
 import dts from "vite-plugin-dts";
+import svgr from "vite-plugin-svgr";
 
 import packageJson from "./package.json";
 
@@ -17,6 +17,7 @@ export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: true,
+      rollupTypes: true,
     }),
     svgr({
       svgrOptions: {
