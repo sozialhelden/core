@@ -44,7 +44,7 @@ describe("categories", () => {
     expect(getCategories()).toMatchObject(mock);
   });
 
-  test("it returns all top level categories that don't have parents and are not hidden", async () => {
+  test("it returns all top level categories that don't have parents", async () => {
     const translatorMock = () => "";
     const mock = {
       accommodation: {
@@ -76,6 +76,45 @@ describe("categories", () => {
         name: translatorMock,
       },
       culture: {
+        name: translatorMock,
+      },
+      food: {
+        name: translatorMock,
+      },
+    });
+  });
+
+  test("it returns all children categories of a given parent", async () => {
+    const translatorMock = () => "";
+    const mock = {
+      accommodation: {
+        name: translatorMock,
+      },
+      hotel: {
+        name: translatorMock,
+        parents: ["accommodation"],
+      },
+      bar: {
+        name: translatorMock,
+        parents: ["accommodation"],
+      },
+      food: {
+        name: translatorMock,
+        hide: true,
+      },
+      culture: {
+        name: translatorMock,
+        parents: ["food"],
+      },
+    };
+    accommodationMock.mockReturnValue(mock);
+    const { getChildCategories } = await import("~/lib/categories/categories");
+
+    expect(getChildCategories("accommodation")).toMatchObject({
+      hotel: {
+        name: translatorMock,
+      },
+      bar: {
         name: translatorMock,
       },
     });

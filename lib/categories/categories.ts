@@ -65,16 +65,30 @@ export function getCategories(): Record<Category, CategoryBaseProperties> {
   return categories;
 }
 
-export function getTopLevelCategories(): Partial<
-  Record<Category, CategoryBaseProperties>
-> {
+function categoryFilter(
+  filterFunction: (
+    category: Category,
+    properties: CategoryBaseProperties,
+  ) => boolean,
+): Partial<Record<Category, CategoryBaseProperties>> {
   return Object.entries(getCategories()).reduce(
     (acc, [category, properties]) => {
-      if (!properties.parents?.length && !properties.hide) {
+      if (filterFunction(category as Category, properties)) {
         acc[category as Category] = properties;
       }
       return acc;
     },
     {} as Partial<Record<Category, CategoryBaseProperties>>,
   );
+}
+
+export function getTopLevelCategories(): Partial<
+  Record<Category, CategoryBaseProperties>
+> {
+  return categoryFilter((_, { parents }) => !parents?.length);
+}
+export function getChildCategories(
+  parent: Category,
+): Partial<Record<Category, CategoryBaseProperties>> {
+  return categoryFilter((_, { parents }) => Boolean(parents?.includes(parent)));
 }
