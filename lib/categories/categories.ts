@@ -1,5 +1,6 @@
 import type { FC } from "react";
 
+import { getEntrancesAndExists } from "~/lib/categories/categories/entrances-and-exists";
 import { getAccommodation } from "./categories/accommodation";
 import { getCulture } from "./categories/culture";
 import { getEducation } from "./categories/education";
@@ -30,6 +31,7 @@ const categories = {
   ...getSport(),
   ...getToilets(),
   ...getTourism(),
+  ...getEntrancesAndExists(),
 } as const;
 
 export type OsmTagValuePair = `${string}=${string}`;

@@ -3,8 +3,22 @@ import { translate } from "~/lib/i18n/utils/translator";
 
 const other = {
   unknown: {
-    name: () => "Unknown",
+    name: () => translate("Unknown"),
     icon: icons.circle,
+    hide: true,
+  },
+
+  elevator: {
+    name: () => translate("Elevator"),
+    icon: icons.elevator,
+    synonyms: ["Aufzug", "Fahrstuhl", "lift"],
+    hide: true,
+  },
+
+  escalator: {
+    name: () => translate("Escalator"),
+    icon: icons.circle, // TODO: find proper icon
+    synonyms: ["Rolltreppe", "moving staircase", "moving stairway"],
     hide: true,
   },
 

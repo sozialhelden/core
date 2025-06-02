@@ -13,6 +13,7 @@ vi.mock("~/lib/categories/categories/shopping");
 vi.mock("~/lib/categories/categories/sport");
 vi.mock("~/lib/categories/categories/toilets");
 vi.mock("~/lib/categories/categories/tourism");
+vi.mock("~/lib/categories/categories/entrances-and-exits");
 
 const accommodationMock = vi.fn();
 
