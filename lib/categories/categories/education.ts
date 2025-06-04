@@ -18,22 +18,24 @@ const education = {
     name: () => translate("Music School"),
     icon: icons.music,
     parents: ["education"],
-    synonyms: ["amenity=music_school", "Music School"],
+    selectors: ["amenity=music_school"],
+    synonyms: ["Music School"],
   },
 
   driving_school: {
     name: () => translate("Driving School"),
     icon: icons.car,
     parents: ["education"],
-    synonyms: ["amenity=driving_school", "driving_school", "Driving School"],
+    selectors: ["amenity=driving_school"],
+    synonyms: ["driving_school", "Driving School"],
   },
 
   school: {
     name: () => translate("School"),
     icon: icons.school,
     parents: ["education"],
+    selectors: ["amenity=school"],
     synonyms: [
-      "amenity=school",
       "800-8200-0174",
       "800-8200-0295",
       "800-8200-0360",
@@ -57,10 +59,8 @@ const education = {
     name: () => translate("Daycare"),
     icon: icons.school,
     parents: ["education"],
+    selectors: ["amenity=childcare", "amenity=kindergarten"],
     synonyms: [
-      "amenity=kindergarten",
-      "amenity=childcare",
-      "amenity=kindergarten",
       "700-7400-0286",
       "Child Care Service",
       "Daycare",
@@ -76,8 +76,8 @@ const education = {
     name: () => translate("University"),
     icon: icons.college,
     parents: ["education"],
+    selectors: ["amenity=university"],
     synonyms: [
-      "amenity=university",
       "800-8200-0173",
       "General College & University",
       "Higher Education",
@@ -89,8 +89,8 @@ const education = {
     name: () => translate("College/University"),
     icon: icons.college,
     parents: ["education"],
+    selectors: ["amenity=college"],
     synonyms: [
-      "amenity=college",
       "Adult Education Center",
       "Auditorium",
       "College & University",

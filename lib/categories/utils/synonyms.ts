@@ -6,8 +6,8 @@ import {
 
 export function getSynonymMap(): Map<string, Category> {
   return Object.entries(getCategories()).reduce(
-    (acc, [category, properties]) => {
-      for (const synonym of properties.synonyms ?? []) {
+    (acc, [category, { synonyms }]) => {
+      for (const synonym of synonyms ?? []) {
         acc.set(synonym, category as Category);
       }
       return acc;

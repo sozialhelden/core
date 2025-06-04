@@ -24,7 +24,6 @@ const publicTransfer = {
       "550-5510-0227",
       "800-8500-0179",
       "Bicycle Parking",
-      "Border Crossing",
       "Bridge",
       "Canal Lock",
       "Canal",
@@ -50,7 +49,6 @@ const publicTransfer = {
       "Verkehr",
       "Weighbridge",
       "public_transfer",
-      "public_transfer",
     ],
     priority: 30,
   },
@@ -59,29 +57,27 @@ const publicTransfer = {
     name: () => translate("Stop"),
     icon: icons.bus,
     parents: ["public_transfer"],
-    synonyms: [],
   },
 
   station: {
     name: () => translate("Transit Station"),
     icon: icons.rail, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: ["public_transport=station"],
+    selectors: ["public_transport=station"],
   },
 
   boarding_area: {
     name: () => translate("Boarding Area"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: [], // TODO: this needs synonyms
   },
 
   train: {
     name: () => translate("Train Stop"),
     icon: icons.rail,
     parents: ["public_transfer"],
+    selectors: ["railway=halt"],
     synonyms: [
-      "railway=halt",
       "400-4100-0339",
       "400-4100-0340",
       "Aerial Tramway",
@@ -96,67 +92,64 @@ const publicTransfer = {
     name: () => translate("Cable Car"),
     icon: icons.aerialway,
     parents: ["public_transfer"],
-    synonyms: [
+    selectors: [
       "aerialway=station",
       "aerialway=cable_car",
       "aerialway=gondola",
-      "Bergbahnen",
-      "cable_car",
     ],
+    synonyms: ["Bergbahnen", "cable_car"],
   },
 
   stop_area: {
     name: () => translate("Stop area"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: ["stop_area", "public_transport=stop_area"],
+    selectors: ["public_transport=stop_area"],
+    synonyms: ["stop_area"],
   },
 
   stop_position: {
     name: () => translate("Stop Position"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: ["stop_position", "public_transport=stop_position"],
+    selectors: ["public_transport=stop_position"],
+    synonyms: ["stop_position"],
   },
 
   platform: {
     name: () => translate("Platform"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: [
-      "public_transport=platform",
-      "Platform",
-      "Tram- oder Bushaltestelle",
-      "platform",
-    ],
+    selectors: ["public_transport=platform"],
+    synonyms: ["Platform", "Tram- oder Bushaltestelle", "platform"],
   },
 
   railway_platform: {
     name: () => translate("Railway Platform"),
     icon: icons.rail, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: ["railway=platform"],
+    selectors: ["railway=platform"],
   },
 
   shelter: {
     name: () => translate("Shelter"),
     icon: icons.shelter,
     parents: ["public_transfer"],
-    synonyms: ["amenity=shelter"],
+    selectors: ["amenity=shelter"],
   },
 
   tram_crossing: {
     name: () => translate("Tram Crossing"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: ["railway=tram_crossing"],
+    selectors: ["railway=tram_crossing"],
   },
 
   traffic_signals: {
     name: () => translate("Traffic Signals"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["public_transfer"],
-    synonyms: ["crossing=traffic_signals"],
+    selectors: ["crossing=traffic_signals"],
   },
 
   parking: {
@@ -170,103 +163,95 @@ const publicTransfer = {
     name: () => translate("Carports"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=carports"],
+    selectors: ["parking=carports"],
   },
 
   parking_half_on_kerb: {
     name: () => translate("Parking half on kerb"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=half_on_kerb"],
+    selectors: ["parking=half_on_kerb"],
   },
 
   parking_layby: {
     name: () => translate("Layby Parking"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=layby"],
+    selectors: ["parking=layby"],
   },
 
   parking_multi_storey: {
     name: () => translate("Parking Decks"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=multi_storey"],
+    selectors: ["parking=multi_storey"],
   },
 
   parking_on_kerb: {
     name: () => translate("Parking on Kerb"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=on_kerb"],
+    selectors: ["parking=on_kerb"],
   },
 
   parking_rooftop: {
     name: () => translate("Rooftop Parking"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=rooftop"],
+    selectors: ["parking=rooftop"],
   },
 
   parking_street_side: {
     name: () => translate("Street-side Parking"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=street_side"],
+    selectors: ["parking=street_side"],
   },
 
   parking_surface: {
     name: () => translate("Surface Parking"),
     icon: icons.parking,
     parents: ["public_transfer"],
-    synonyms: ["parking=surface"],
+    selectors: ["parking=surface"],
   },
 
   parking_underground: {
     name: () => translate("Underground Parking"),
     icon: icons.parkingGarage,
     parents: ["public_transfer"],
-    synonyms: ["parking=underground"],
+    selectors: ["parking=underground"],
   },
 
   taxi: {
     name: () => translate("Taxi"),
     icon: icons.taxi,
     parents: ["public_transfer"],
-    synonyms: [
-      "amenity=taxi",
-      "Taxi Rank",
-      "Taxi Stand",
-      "Taxi",
-      "taxi_service",
-      "taxi_stand",
-    ],
+    selectors: ["amenity=taxi"],
+    synonyms: ["Taxi Rank", "Taxi Stand", "Taxi", "taxi_service", "taxi_stand"],
   },
 
   pier: {
     name: () => translate("Pier"),
     icon: icons.harbor,
     parents: ["public_transfer"],
-    synonyms: ["man_made=pier", "Pier"],
+    selectors: ["man_made=pier"],
+    synonyms: ["Pier"],
   },
 
   charging_station: {
     name: () => translate("EV charging station"),
     icon: icons.chargingStation,
     parents: ["public_transfer"],
-    synonyms: [
-      "amenity=charging_station",
-      "EV Charging Point",
-      "EV Charging Station",
-    ],
+    selectors: ["amenity=charging_station"],
+    synonyms: ["EV Charging Point", "EV Charging Station"],
   },
 
   marina: {
     name: () => translate("Harbor/Marina"),
     icon: icons.harbor,
     parents: ["public_transfer"],
+    selectors: ["leisure=marina"],
     synonyms: [
-      "leisure=marina",
       "350-3500-0300",
       "400-4200-0051",
       "700-7400-0140",
@@ -291,8 +276,8 @@ const publicTransfer = {
     name: () => translate("Bike Rental"),
     icon: icons.bicycleShare,
     parents: ["public_transfer"],
+    selectors: ["amenity=bicycle_rental"],
     synonyms: [
-      "amenity=bicycle_rental",
       "400-4100-0347",
       "Bicycle Sharing Docking Station",
       "Bike Rental / Bike Share",
@@ -303,12 +288,11 @@ const publicTransfer = {
     name: () => translate("Bus Stop"),
     icon: icons.bus,
     parents: ["public_transfer"],
+    selectors: ["highway=bus_stop"],
     synonyms: [
-      "highway=bus_stop",
       "400-4100-0036",
       "400-4100-0341",
       "Bus Rapid Transit",
-      "Bus Station",
       "Bus Stop",
       "transit_station",
     ],
@@ -330,8 +314,8 @@ const publicTransfer = {
     name: () => translate("Gas Station"),
     icon: icons.fuel,
     parents: ["public_transfer"],
+    selectors: ["amenity=fuel"],
     synonyms: [
-      "amenity=fuel",
       "700-7600-0000",
       "700-7600-0116",
       "700-7600-0322",
@@ -340,7 +324,6 @@ const publicTransfer = {
       "Service Station",
       "Tankstelle",
       "gas_station",
-      "gas_station",
     ],
   },
 
@@ -348,8 +331,8 @@ const publicTransfer = {
     name: () => translate("Ferry Terminal"),
     icon: icons.ferry,
     parents: ["public_transfer"],
+    selectors: ["amenity=ferry_terminal"],
     synonyms: [
-      "amenity=ferry_terminal",
       "400-4100-0044",
       "400-4100-0045",
       "400-4100-0046",
@@ -366,8 +349,8 @@ const publicTransfer = {
     name: () => translate("Car Rental"),
     icon: icons.carRental,
     parents: ["public_transfer"],
+    selectors: ["amenity=car_rental"],
     synonyms: [
-      "amenity=car_rental",
       "700-7851-0117",
       "Car Hire Agency",
       "Rental Car Location",
@@ -379,36 +362,31 @@ const publicTransfer = {
     name: () => translate("Car Sharing"),
     icon: icons.carRental,
     parents: ["public_transfer"],
-    synonyms: ["amenity=car_sharing"],
+    selectors: ["amenity=car_sharing"],
   },
 
   tram_stop: {
     name: () => translate("Tram Station"),
     icon: icons.railLight,
     parents: ["public_transfer"],
-    synonyms: [
-      "railway=tram_stop",
-      "400-4100-0337",
-      "400-4100-0342",
-      "Funicular",
-      "Light Rail",
-      "Tram Station",
-    ],
+    selectors: ["railway=tram_stop"],
+    synonyms: ["400-4100-0342", "Funicular", "Light Rail", "Tram Station"],
   },
 
   bus_station: {
     name: () => translate("Bus station"),
     icon: icons.bus,
     parents: ["public_transfer"],
-    synonyms: ["amenity=bus_station", "bus_station", "Bus Line", "Bus Station"],
+    selectors: ["amenity=bus_station"],
+    synonyms: ["bus_station", "Bus Line", "Bus Station"],
   },
 
   train_station: {
     name: () => translate("Train Station"),
     icon: icons.rail,
     parents: ["public_transfer"],
+    selectors: ["railway=station"],
     synonyms: [
-      "railway=station",
       "400-4100-0035",
       "400-4100-0038",
       "400-4100-0039",
@@ -429,8 +407,8 @@ const publicTransfer = {
     name: () => translate("Airport"),
     icon: icons.airport,
     parents: ["public_transfer"],
+    selectors: ["aeroway=terminal"],
     synonyms: [
-      "aeroway=terminal",
       "400-4000-4580",
       "400-4000-4581",
       "400-4000-4582",

@@ -11,6 +11,7 @@ const other = {
   elevator: {
     name: () => translate("Elevator"),
     icon: icons.elevator,
+    selectors: ["highway=elevator"],
     synonyms: ["Aufzug", "Fahrstuhl", "lift"],
     hide: true,
   },
@@ -24,7 +25,7 @@ const other = {
 
   other: {
     name: () => translate("Other"),
-    icon: icons.circle,
+    icon: icons.entrance,
     hide: true,
     synonyms: [
       "800-8700-0000",
@@ -46,7 +47,6 @@ const other = {
       "Pawn Shop",
       "Plaza",
       "Pop-Up Shop",
-      "Recycling Facility",
       "Reservoir",
       "River",
       "Stables",
@@ -71,6 +71,7 @@ const other = {
     name: () => translate("Youth Organization"),
     icon: icons.embassy,
     parents: ["other"],
+    selectors: ["community_centre=youth_centre"],
     synonyms: ["Youth Organizations"],
   },
 
@@ -79,35 +80,35 @@ const other = {
     // TODO: add proper icon
     icon: icons.building,
     parents: ["other"],
-    synonyms: ["office=tax_advisor", "700-7400-0150", "Tax Services"],
+    selectors: ["office=tax_advisor"],
+    synonyms: ["700-7400-0150", "Tax Services"],
   },
 
   recycling: {
     name: () => translate("Waste/Recycling"),
     icon: icons.recycling,
     parents: ["other"],
-    synonyms: [
+    selectors: [
       "amenity=recycling",
       "amenity=waste_basket",
       "amenity=waste_disposal",
-      "Recycling Facility",
-      "Recycling- Sammelstelle",
     ],
+    synonyms: ["Recycling Facility", "Recycling- Sammelstelle"],
   },
 
   vending_machine: {
     name: () => translate("Vending Machine"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["other", "public_transfer", "leisure"],
-    synonyms: ["amenity=vending_machine"],
+    selectors: ["amenity=vending_machine"],
   },
 
   house: {
     name: () => translate("Real Estate Agency"),
     icon: icons.home,
     parents: ["other"],
+    selectors: ["office=estate_agent"],
     synonyms: [
-      "office=estate_agent",
       "700-7200-0273",
       "700-7200-0324",
       "700-7200-0344",
@@ -127,8 +128,8 @@ const other = {
     name: () => translate("Veterinarian"),
     icon: icons.veterinary,
     parents: ["other"],
+    selectors: ["amenity=veterinary"],
     synonyms: [
-      "amenity=veterinary",
       "Pet Servic",
       "Veterinarian",
       "Veterinary Medicine",
@@ -141,8 +142,8 @@ const other = {
     name: () => translate("Association"),
     icon: icons.embassy,
     parents: ["other"],
+    selectors: ["office=association"],
     synonyms: [
-      "office=association",
       "700-7200-0269",
       "Organisation or Society",
       "association_or_organization",
@@ -162,7 +163,6 @@ const other = {
       "Distribution Center",
       "Factory",
       "Industrial Estate",
-      "Industrial Estate",
       "Manufacturing",
       "Mining",
       "Power Plant",
@@ -178,28 +178,24 @@ const other = {
     name: () => translate("Non-Government Organisation"),
     icon: icons.embassy,
     parents: ["other"],
-    synonyms: ["office=ngo", "Non-Profit"],
+    selectors: ["office=ngo"],
+    synonyms: ["Non-Profit"],
   },
 
   insurance: {
     name: () => translate("Insurance Agency"),
     icon: icons.suitcase,
     parents: ["other"],
-    synonyms: [
-      "office=insurance",
-      "Insurance Office",
-      "insurance_agency",
-      "insurance_agency",
-      "unemployment_office",
-    ],
+    selectors: ["office=insurance"],
+    synonyms: ["Insurance Office", "insurance_agency", "unemployment_office"],
   },
 
   lawyer: {
     name: () => translate("Legal service"),
     icon: icons.building,
     parents: ["other"],
+    selectors: ["office=lawyer"],
     synonyms: [
-      "office=lawyer",
       "700-7400-0138",
       "700-7400-0327",
       "Financial or Legal Service",
@@ -214,9 +210,8 @@ const other = {
     name: () => translate("Corporate Office"),
     icon: icons.suitcase,
     parents: ["other"],
+    selectors: ["office=company", "office=*"],
     synonyms: [
-      "office=company",
-      "office=*",
       "700-7100-0000",
       "700-7100-0134",
       "700-7200-0000",

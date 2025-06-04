@@ -9,7 +9,6 @@ const moneyPost = {
       "600-6900-0250",
       "700-7050-0109",
       "700-7200-0271",
-      "Bank",
       "Finance & Insurance Services",
       "Money Transferring Service",
       "Pawnshop",
@@ -23,15 +22,16 @@ const moneyPost = {
     name: () => translate("Post Box"),
     icon: icons.post,
     parents: ["money_post"],
-    synonyms: ["amenity=post_box", "post_box", "Post box"],
+    selectors: ["amenity=post_box"],
+    synonyms: ["post_box", "Post box"],
   },
 
   currencyexchange: {
     name: () => translate("Currency Exchange"),
     icon: icons.bank,
     parents: ["money_post"],
+    selectors: ["amenity=bureau_de_change"],
     synonyms: [
-      "amenity=bureau_de_change",
       "700-7050-0110",
       "Check Cashing Service",
       "Cheque Cashing & Currency Exchange",
@@ -44,22 +44,23 @@ const moneyPost = {
     name: () => translate("Parcel Locker"),
     icon: icons.circle, // TODO: use a better icon
     parents: ["money_post"],
-    synonyms: ["amenity=parcel_locker"],
+    selectors: ["amenity=parcel_locker"],
   },
 
   bank: {
     name: () => translate("Bank"),
     icon: icons.bank,
     parents: ["money_post"],
-    synonyms: ["amenity=bank", "700-7000-0107", "Bank", "Credit Union", "bank"],
+    selectors: ["amenity=bank"],
+    synonyms: ["700-7000-0107", "Bank", "Credit Union", "bank"],
   },
 
   post_office: {
     name: () => translate("Post Office"),
     icon: icons.post,
     parents: ["money_post"],
+    selectors: ["amenity=post_office"],
     synonyms: [
-      "amenity=post_office",
       "700-7450-0114",
       "700-7450-0294",
       "Post Office",
@@ -72,14 +73,8 @@ const moneyPost = {
     name: () => translate("ATM"),
     icon: icons.bank,
     parents: ["money_post"],
-    synonyms: [
-      "amenity=atm",
-      "700-7010-0108",
-      "ATM",
-      "Cash Machine",
-      "Geldautomat",
-      "atm",
-    ],
+    selectors: ["amenity=atm"],
+    synonyms: ["700-7010-0108", "ATM", "Cash Machine", "Geldautomat", "atm"],
   },
 } as const;
 

@@ -1,32 +1,32 @@
 import * as icons from "~/lib/categories/icons";
 import { translate } from "~/lib/i18n/utils/translator";
 
-const entrancesAndExists = {
+const entrancesAndExits = {
   entrance: {
     name: () => translate("Entrance"),
-    icon: icons.entrance,
-    synonyms: ["entrance=yes"],
+    icon: icons.entranceAlt1,
+    selectors: ["entrance=yes"],
     hide: true,
   },
 
   emergency_exit: {
     name: () => translate("Emergency Exit"),
-    icon: icons.entrance,
-    synonyms: ["entrance=emergency"],
+    icon: icons.entranceAlt1,
+    selectors: ["entrance=emergency"],
     hide: true,
   },
 
   exit: {
     name: () => translate("Exit"),
-    icon: icons.entrance,
-    synonyms: ["entrance=exit"],
+    icon: icons.entranceAlt1,
+    selectors: ["entrance=exit"],
     hide: true,
   },
 
   main_entrance: {
     name: () => translate("Main entrance"),
-    icon: icons.entrance,
-    synonyms: ["entrance=main"],
+    icon: icons.entranceAlt1,
+    selectors: ["entrance=main"],
     hide: true,
   },
 
@@ -34,16 +34,10 @@ const entrancesAndExists = {
     name: () => translate("Subway Entrance"),
     icon: icons.railMetro,
     parents: ["public_transfer"],
-    synonyms: ["railway=subway_entrance"],
-  },
-  station_entrance: {
-    name: () => translate("Station Entrance"),
-    icon: icons.rail,
-    parents: ["public_transfer"],
-    synonyms: [],
+    selectors: ["railway=subway_entrance"],
   },
 } as const;
 
 export function getEntrancesAndExists() {
-  return entrancesAndExists;
+  return entrancesAndExits;
 }

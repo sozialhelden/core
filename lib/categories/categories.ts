@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import { getEntrancesAndExists } from "~/lib/categories/categories/entrances-and-exists";
+import { getEntrancesAndExists } from "~/lib/categories/categories/entrances-and-exits";
 import { getAccommodation } from "./categories/accommodation";
 import { getCulture } from "./categories/culture";
 import { getEducation } from "./categories/education";
@@ -47,12 +47,17 @@ export type CategoryBaseProperties = {
   hide?: boolean;
   // Categories get ordered in the UI by their priority.
   priority?: number;
-  // A list of synonyms for this category, can be OSM tag
-  // value pairs or plain strings. This will be used to
-  // match a place to a category.
-  synonyms?: Readonly<Array<string | OsmTagValuePair>>;
   // A list of parent categories
   parents?: Readonly<Category[]>;
+  // A list of OSM tag selectors, this will be used to match
+  // a place to a category when dealing with OSM data. You can
+  // use key=* to match all values for a key. All selectors are
+  // OR conditions, so if a place matches any of the selectors,
+  // it will be assigned to this category.
+  selectors?: Readonly<Array<OsmTagValuePair>>;
+  // A list of synonyms for this category, this will be used to
+  // match a place to a category when dealing with non-OSM data.
+  synonyms?: Readonly<Array<string>>;
 };
 
 export type CategoryProperties = CategoryBaseProperties & { id: Category };
@@ -89,6 +94,7 @@ export function getTopLevelCategories(): Partial<
 > {
   return categoryFilter((_, { parents }) => !parents?.length);
 }
+
 export function getChildCategories(
   parent: Category,
 ): Partial<Record<Category, CategoryBaseProperties>> {

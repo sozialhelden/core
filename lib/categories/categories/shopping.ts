@@ -5,8 +5,8 @@ const shopping = {
   shopping: {
     name: () => translate("Shopping"),
     icon: icons.grocery,
+    selectors: ["shop=*"],
     synonyms: [
-      "shop=*",
       "600-6900-0000",
       "600-6900-0099",
       "600-6900-0249",
@@ -21,7 +21,6 @@ const shopping = {
       "Miscellaneous Shop",
       "Shop & Service",
       "cheese_shop",
-      "copy_shop",
       "luggage_store",
       "perfume_store",
       "shopping",
@@ -34,25 +33,24 @@ const shopping = {
     name: () => translate("Bicycle Repair Station"),
     icon: icons.bicycle,
     parents: ["shopping"],
-    synonyms: [
-      "amenity=bicycle_repair_station",
-      "Bicycle Repair & Maintenance",
-    ],
+    selectors: ["amenity=bicycle_repair_station"],
+    synonyms: ["Bicycle Repair & Maintenance"],
   },
 
   cemetery: {
     name: () => translate("Cemetery"),
     icon: icons.cemetery,
     parents: ["shopping"],
-    synonyms: ["landuse=cemetery", "Cemetery"],
+    selectors: ["landuse=cemetery"],
+    synonyms: ["Cemetery"],
   },
 
   supermarket: {
     name: () => translate("Supermarket"),
     icon: icons.grocery,
     parents: ["shopping"],
+    selectors: ["shop=supermarket"],
     synonyms: [
-      "shop=supermarket",
       "600-6300-0066",
       "Food & Drink Shop",
       "Food Service",
@@ -68,8 +66,8 @@ const shopping = {
     name: () => translate("Confectionery"),
     icon: icons.confectionery,
     parents: ["shopping"],
+    selectors: ["shop=confectionery"],
     synonyms: [
-      "shop=confectionery",
       "600-6300-0245",
       "Candy Store",
       "Chocolate Shop",
@@ -87,8 +85,8 @@ const shopping = {
     name: () => translate("Adult Shop"),
     icon: icons.heart,
     parents: ["shopping"],
+    selectors: ["shop=erotic"],
     synonyms: [
-      "shop=erotic",
       "600-6900-0305",
       "Adult Boutique",
       "Adult/Sex Shop",
@@ -100,16 +98,14 @@ const shopping = {
     name: () => translate("funeral Home"),
     icon: icons.cemetery,
     parents: ["shopping"],
+    selectors: ["shop=funeral_directors"],
     synonyms: [
-      "shop=funeral_directors",
       "700-7400-0142",
       "800-8700-0166",
       "800-8700-0167",
       "Crematorium",
       "Funeral Home",
-      "Funeral Home",
       "funeral_directors",
-      "funeral_home",
       "funeral_home",
     ],
   },
@@ -118,8 +114,8 @@ const shopping = {
     name: () => translate("Mall"),
     icon: icons.shop,
     parents: ["shopping"],
+    selectors: ["shop=mall"],
     synonyms: [
-      "shop=mall",
       "600-6100-0062",
       "Einkaufszentrum",
       "Mall or Shopping Centre",
@@ -137,8 +133,8 @@ const shopping = {
     name: () => translate("Record Store"),
     icon: icons.music,
     parents: ["shopping"],
+    selectors: ["shop=music"],
     synonyms: [
-      "shop=music",
       "600-6900-0105",
       "CD & Video Sales",
       "Music Store",
@@ -151,20 +147,16 @@ const shopping = {
     name: () => translate("Organic Grocery"),
     icon: icons.grocery,
     parents: ["shopping"],
-    synonyms: [
-      "shop=organic",
-      "Health Food Store",
-      "Organic Grocery",
-      "organic",
-    ],
+    selectors: ["shop=organic"],
+    synonyms: ["Health Food Store", "Organic Grocery", "organic"],
   },
 
   pet_store: {
     name: () => translate("Pet Store"),
     icon: icons.veterinary,
     parents: ["shopping"],
+    selectors: ["shop=pet"],
     synonyms: [
-      "shop=pet",
       "600-6900-0097",
       "700-7400-0293",
       "Pet Care Service",
@@ -180,20 +172,16 @@ const shopping = {
     name: () => translate("Greengrocer"),
     icon: icons.grocery,
     parents: ["shopping"],
-    synonyms: [
-      "shop=greengrocer",
-      "Fruit & Vegetable Store",
-      "Grocery Store",
-      "green_grocers",
-    ],
+    selectors: ["shop=greengrocer"],
+    synonyms: ["Fruit & Vegetable Store", "Grocery Store", "green_grocers"],
   },
 
   tobacco: {
     name: () => translate("Tobacco Store"),
     icon: icons.grocery,
     parents: ["shopping"],
+    selectors: ["shop=tobacco"],
     synonyms: [
-      "shop=tobacco",
       "Marijuana Dispensary",
       "Smoke Shop",
       "Vape Store",
@@ -205,8 +193,8 @@ const shopping = {
     name: () => translate("Bicycle Store"),
     icon: icons.bicycle,
     parents: ["shopping"],
+    selectors: ["shop=bicycle"],
     synonyms: [
-      "shop=bicycle",
       "500-5500-0387",
       "550-5510-0387",
       "600-6900-0246",
@@ -223,9 +211,8 @@ const shopping = {
     name: () => translate("Computers"),
     icon: icons.grocery,
     parents: ["shopping"],
+    selectors: ["shop=computer", "office=it"],
     synonyms: [
-      "shop=computer",
-      "office=it",
       "600-6500-0075",
       "700-7200-0261",
       "Computer Hardware & Software",
@@ -239,8 +226,8 @@ const shopping = {
     name: () => translate("Sports Shop"),
     icon: icons.soccer,
     parents: ["shopping"],
+    selectors: ["shop=sports"],
     synonyms: [
-      "shop=sports",
       "600-6900-0094",
       "600-6900-0389",
       "600-6900-0390",
@@ -268,8 +255,8 @@ const shopping = {
     name: () => translate("Outdoor Supply"),
     icon: icons.mountain,
     parents: ["shopping"],
+    selectors: ["shop=outdoor"],
     synonyms: [
-      "shop=outdoor",
       "550-5510-0379",
       "600-6900-0388",
       "600-6900-0394",
@@ -284,7 +271,6 @@ const shopping = {
       "Hunting/Fishing Shop",
       "Outdoor Services",
       "Outdoor Supply Store",
-      "Ski Shop",
       "Tack Shop",
       "outdoor",
     ],
@@ -294,21 +280,16 @@ const shopping = {
     name: () => translate("Kiosk"),
     icon: icons.grocery,
     parents: ["shopping"],
-    synonyms: [
-      "shop=kiosk",
-      "700-7400-0291",
-      "Lottery Retailer",
-      "Self-Service Kiosk",
-    ],
+    selectors: ["shop=kiosk"],
+    synonyms: ["700-7400-0291", "Lottery Retailer", "Self-Service Kiosk"],
   },
 
   mobile_phones: {
     name: () => translate("Phone Store"),
     icon: icons.mobilePhone,
     parents: ["shopping"],
+    selectors: ["shop=mobile_phone", "shop=telecommunication"],
     synonyms: [
-      "shop=mobile_phone",
-      "shop=telecommunication",
       "600-6500-0073",
       "600-6500-0074",
       "Mobile Phone Retailer",
@@ -323,27 +304,24 @@ const shopping = {
     name: () => translate("Newsstand"),
     icon: icons.shop,
     parents: ["shopping"],
-    synonyms: ["shop=newsagent", "Newsstand"],
+    selectors: ["shop=newsagent"],
+    synonyms: ["Newsstand"],
   },
 
   tailor: {
     name: () => translate("Tailor"),
     icon: icons.clothingStore,
     parents: ["shopping"],
-    synonyms: [
-      "shop=tailor",
-      "700-7400-0149",
-      "Tailor Shop",
-      "Tailoring & Alteration",
-    ],
+    selectors: ["shop=tailor"],
+    synonyms: ["700-7400-0149", "Tailor Shop", "Tailoring & Alteration"],
   },
 
   tea_shop: {
     name: () => translate("Tea"),
     icon: icons.teahouse,
     parents: ["shopping"],
+    selectors: ["shop=tea"],
     synonyms: [
-      "shop=tea",
       "100-1100-0331",
       "Bubble Tea Shop",
       "Tea Room",
@@ -356,15 +334,16 @@ const shopping = {
     name: () => translate("Textiles"),
     icon: icons.clothingStore,
     parents: ["shopping"],
-    synonyms: ["shop=fabric", "Fabric Shop", "fabric"],
+    selectors: ["shop=fabric"],
+    synonyms: ["Fabric Shop", "fabric"],
   },
 
   video_store: {
     name: () => translate("Video Store"),
     icon: icons.cinema,
     parents: ["shopping"],
+    selectors: ["shop=video"],
     synonyms: [
-      "shop=video",
       "600-6900-0106",
       "Video & Game Rental",
       "Video Store",
@@ -379,15 +358,16 @@ const shopping = {
     name: () => translate("Arts & Crafts"),
     icon: icons.gift,
     parents: ["shopping"],
-    synonyms: ["shop=art", "Arts & Crafts Store"],
+    selectors: ["shop=art"],
+    synonyms: ["Arts & Crafts Store"],
   },
 
   car_repair: {
     name: () => translate("Car Repair"),
     icon: icons.carRepair,
     parents: ["shopping"],
+    selectors: ["shop=car_repair"],
     synonyms: [
-      "shop=car_repair",
       "600-6900-0248",
       "700-7200-0268",
       "700-7200-0278",
@@ -429,12 +409,11 @@ const shopping = {
     name: () => translate("Discount Store"),
     icon: icons.shop,
     parents: ["shopping"],
+    selectors: ["shop=variety_store"],
     synonyms: [
-      "shop=variety_store",
       "600-6900-0096",
       "600-6900-0100",
       "600-6900-0102",
-      "Discount Store",
       "Discount Store",
       "Outlet Mall",
       "Outlet Store",
@@ -448,8 +427,8 @@ const shopping = {
     name: () => translate("Photography"),
     icon: icons.attraction,
     parents: ["shopping"],
+    selectors: ["shop=photo"],
     synonyms: [
-      "shop=photo",
       "700-7400-0144",
       "Camera Store",
       "Photographic Services",
@@ -465,8 +444,8 @@ const shopping = {
     name: () => translate("Hobby Shop"),
     icon: icons.shop,
     parents: ["shopping"],
+    selectors: ["shop=doityourself"],
     synonyms: [
-      "shop=doityourself",
       "600-6600-0077",
       "600-6900-0307",
       "Handicraft Supplies",
@@ -482,17 +461,15 @@ const shopping = {
     name: () => translate("Beverage Store"),
     icon: icons.alcoholShop,
     parents: ["shopping"],
-    synonyms: ["shop=beverages"],
+    selectors: ["shop=beverages"],
   },
 
   beautysalon: {
     name: () => translate("Beauty Salon"),
     icon: icons.hairdresser,
     parents: ["shopping"],
+    selectors: ["shop=beauty", "shop=tattoo", "amenity=tanning_salon"],
     synonyms: [
-      "shop=beauty",
-      "shop=tattoo",
-      "amenity=tanning_salon",
       "600-6900-0104",
       "600-6950-0000",
       "600-6950-0399",
@@ -522,8 +499,8 @@ const shopping = {
     name: () => translate("Hardware Store"),
     icon: icons.hardware,
     parents: ["shopping"],
+    selectors: ["shop=hardware"],
     synonyms: [
-      "shop=hardware",
       "600-6600-0000",
       "600-6600-0084",
       "600-6600-0310",
@@ -545,8 +522,8 @@ const shopping = {
     name: () => translate("Deli"),
     icon: icons.restaurantSushi,
     parents: ["shopping"],
+    selectors: ["shop=deli"],
     synonyms: [
-      "shop=deli",
       "600-6300-0064",
       "600-6300-0067",
       "Cheese Shop",
@@ -566,9 +543,8 @@ const shopping = {
     name: () => translate("Travel Agency"),
     icon: icons.airport,
     parents: ["shopping"],
+    selectors: ["shop=travel_agency"],
     synonyms: [
-      "shop=travel_agency",
-      "700-7400-0133",
       "General Travel",
       "Reisebüro",
       "Travel & Transport",
@@ -582,8 +558,8 @@ const shopping = {
     name: () => translate("Stationery"),
     icon: icons.circle, // TODO: find proper icon
     parents: ["shopping"],
+    selectors: ["shop=stationery"],
     synonyms: [
-      "shop=stationery",
       "600-6900-0095",
       "Office Supplies & Services",
       "Paper / Office Supplies Store",
@@ -595,15 +571,16 @@ const shopping = {
     name: () => translate("Copy Shop"),
     icon: icons.grocery,
     parents: ["shopping"],
-    synonyms: ["shop=copyshop", "copy_shop", "Print Shop"],
+    selectors: ["shop=copyshop"],
+    synonyms: ["copy_shop", "Print Shop"],
   },
 
   interior_decoration: {
     name: () => translate("Interior Design Shop"),
     icon: icons.shop,
     parents: ["shopping"],
+    selectors: ["shop=interior_decoration"],
     synonyms: [
-      "shop=interior_decoration",
       "600-6600-0078",
       "600-6600-0079",
       "600-6600-0083",
@@ -619,8 +596,8 @@ const shopping = {
     name: () => translate("Thrift Shop"),
     icon: icons.grocery,
     parents: ["shopping"],
+    selectors: ["shop=second_hand"],
     synonyms: [
-      "shop=second_hand",
       "600-6900-0251",
       "Second-hand Shop",
       "Thrift / Vintage Store",
@@ -632,8 +609,8 @@ const shopping = {
     name: () => translate("Toy Store"),
     icon: icons.gaming,
     parents: ["shopping"],
+    selectors: ["shop=toys"],
     synonyms: [
-      "shop=toys",
       "600-6900-0358",
       "Toy / Game Store",
       "Toy Shop",
@@ -646,8 +623,8 @@ const shopping = {
     name: () => translate("Laundry Service"),
     icon: icons.laundry,
     parents: ["shopping"],
+    selectors: ["shop=laundry"],
     synonyms: [
-      "shop=laundry",
       "700-7400-0137",
       "Dry Cleaning & Laundry",
       "Laundromat",
@@ -660,8 +637,8 @@ const shopping = {
     name: () => translate("Butcher"),
     icon: icons.grocery,
     parents: ["shopping", "food"],
+    selectors: ["shop=butcher"],
     synonyms: [
-      "shop=butcher",
       "600-6300-0363",
       "Butcher",
       "Butcher's",
@@ -674,22 +651,16 @@ const shopping = {
     name: () => translate("Bakery"),
     icon: icons.bakery,
     parents: ["shopping", "food"],
-    synonyms: [
-      "shop=bakery",
-      "600-6300-0244",
-      "Bagel Shop",
-      "Baker's",
-      "Bakery",
-      "bakery",
-    ],
+    selectors: ["shop=bakery"],
+    synonyms: ["600-6300-0244", "Bagel Shop", "Baker's", "Bakery", "bakery"],
   },
 
   alcohol: {
     name: () => translate("Liquor Store"),
     icon: icons.alcoholShop,
     parents: ["shopping"],
+    selectors: ["shop=alcohol"],
     synonyms: [
-      "shop=alcohol",
       "600-6300-0068",
       "Beer Store",
       "Distillery",
@@ -706,8 +677,8 @@ const shopping = {
     name: () => translate("Garden Center"),
     icon: icons.gardenCentre,
     parents: ["shopping"],
+    selectors: ["shop=garden_centre"],
     synonyms: [
-      "shop=garden_centre",
       "600-6600-0082",
       "Garden Center",
       "Garden Centre",
@@ -719,15 +690,16 @@ const shopping = {
     name: () => translate("Antique Shop"),
     icon: icons.grocery,
     parents: ["shopping"],
-    synonyms: ["shop=antiques", "antique_furniture_store", "Antique Shop"],
+    selectors: ["shop=antiques"],
+    synonyms: ["antique_furniture_store", "Antique Shop"],
   },
 
   market: {
     name: () => translate("Market"),
     icon: icons.grocery,
     parents: ["shopping"],
+    selectors: ["amenity=marketplace"],
     synonyms: [
-      "amenity=marketplace",
       "100-1000-0004",
       "600-6900-0247",
       "Christmas Market",
@@ -750,8 +722,8 @@ const shopping = {
     name: () => translate("Souvenir Shop"),
     icon: icons.gift,
     parents: ["shopping"],
+    selectors: ["shop=gift"],
     synonyms: [
-      "shop=gift",
       "600-6900-0103",
       "Antiques & Art",
       "Gift Shop",
@@ -765,29 +737,24 @@ const shopping = {
     name: () => translate("Florist"),
     icon: icons.florist,
     parents: ["shopping"],
-    synonyms: [
-      "shop=florist",
-      "600-6900-0355",
-      "Florist",
-      "Flower Shop",
-      "florist",
-      "florist",
-    ],
+    selectors: ["shop=florist"],
+    synonyms: ["600-6900-0355", "Florist", "Flower Shop", "florist"],
   },
 
   dry_cleaning: {
     name: () => translate("Dry Cleaner"),
     icon: icons.laundry,
     parents: ["shopping"],
-    synonyms: ["shop=dry_cleaning", "Dry Cleaner"],
+    selectors: ["shop=dry_cleaning"],
+    synonyms: ["Dry Cleaner"],
   },
 
   department_store: {
     name: () => translate("Department Store"),
     icon: icons.grocery,
     parents: ["shopping"],
+    selectors: ["shop=department_store"],
     synonyms: [
-      "shop=department_store",
       "600-6200-0063",
       "600-6900-0098",
       "Department Store",
@@ -802,8 +769,8 @@ const shopping = {
     name: () => translate("Convencience Store"),
     icon: icons.convenience,
     parents: ["shopping"],
+    selectors: ["shop=convenience"],
     synonyms: [
-      "shop=convenience",
       "600-6000-0000",
       "600-6000-0061",
       "600-6300-0364",
@@ -817,11 +784,11 @@ const shopping = {
   },
 
   books: {
-    name: () => translate("Library"),
+    name: () => translate("Book Store"),
     icon: icons.library,
     parents: ["shopping"],
+    selectors: ["shop=books"],
     synonyms: [
-      "shop=books",
       "600-6700-0000",
       "600-6700-0087",
       "Book Shop",
@@ -840,21 +807,16 @@ const shopping = {
     name: () => translate("Barber"),
     icon: icons.hairdresser,
     parents: ["shopping"],
-    synonyms: [
-      "shop=hairdresser",
-      "Salon / Barbershop",
-      "hair_care",
-      "hair_salon",
-      "hairdresser",
-    ],
+    selectors: ["shop=hairdresser"],
+    synonyms: ["Salon / Barbershop", "hair_care", "hair_salon", "hairdresser"],
   },
 
   electronics: {
     name: () => translate("Electronics"),
     icon: icons.gaming,
     parents: ["shopping"],
+    selectors: ["shop=electronics"],
     synonyms: [
-      "shop=electronics",
       "600-6500-0072",
       "600-6500-0076",
       "600-6500-0333",
@@ -878,15 +840,16 @@ const shopping = {
     name: () => translate("Musical Instruments Store"),
     icon: icons.music,
     parents: ["shopping"],
-    synonyms: ["shop=musical_instrument", "musical_instrument"],
+    selectors: ["shop=musical_instrument"],
+    synonyms: ["musical_instrument"],
   },
 
   jewelry: {
     name: () => translate("Jewelry Store"),
     icon: icons.jewelryStore,
     parents: ["shopping"],
+    selectors: ["shop=jewelry"],
     synonyms: [
-      "shop=jewelry",
       "600-6900-0101",
       "600-6900-0356",
       "Flowers & Jewelry",
@@ -900,8 +863,8 @@ const shopping = {
     name: () => translate("Shoe Store"),
     icon: icons.shoe,
     parents: ["shopping"],
+    selectors: ["shop=shoes"],
     synonyms: [
-      "shop=shoes",
       "600-6800-0092",
       "Shoe Repair",
       "Shoe Store",
@@ -915,8 +878,8 @@ const shopping = {
     name: () => translate("Car Dealer"),
     icon: icons.car,
     parents: ["shopping"],
+    selectors: ["shop=car"],
     synonyms: [
-      "shop=car",
       "700-7800-0118",
       "700-7800-0119",
       "700-7800-0120",
@@ -938,8 +901,8 @@ const shopping = {
     name: () => translate("Clothing Store"),
     icon: icons.clothingStore,
     parents: ["shopping"],
+    selectors: ["shop=clothes"],
     synonyms: [
-      "shop=clothes",
       "600-6800-0000",
       "600-6800-0089",
       "600-6800-0090",
@@ -969,8 +932,8 @@ const shopping = {
     name: () => translate("Furniture Store"),
     icon: icons.furniture,
     parents: ["shopping"],
+    selectors: ["shop=furniture"],
     synonyms: [
-      "shop=furniture",
       "600-6600-0080",
       "Carpet Store",
       "Furniture & Home Accessories",
@@ -987,13 +950,8 @@ const shopping = {
     name: () => translate("Drugstore"),
     icon: icons.pharmacy,
     parents: ["shopping"],
-    synonyms: [
-      "shop=chemist",
-      "600-6400-0069",
-      "Chemist's",
-      "Cosmetics Shop",
-      "Drugstore",
-    ],
+    selectors: ["shop=chemist"],
+    synonyms: ["600-6400-0069", "Chemist's", "Cosmetics Shop", "Drugstore"],
   },
 } as const;
 
