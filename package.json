@@ -1,6 +1,6 @@
 {
   "name": "@sozialhelden/core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Core utilities shared by different sozialhelden projects",
   "author": "Sozialhelden e.V. <developers@sozialhelden.de>",
   "license": "MIT",
