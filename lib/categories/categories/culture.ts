@@ -6,10 +6,8 @@ const culture = {
     name: () => translate("Culture"),
     icon: icons.theatre,
     synonyms: [
-      "cultural_center",
       "Concert Hall",
       "Cultural Center",
-      "Jazz Club",
       "200-2300-0022",
       "Kultur und Soziales",
     ],
@@ -19,8 +17,8 @@ const culture = {
     name: () => translate("Museum"),
     icon: icons.museum,
     parents: ["culture", "leisure", "tourism", "education"],
+    selectors: ["tourism=museum"],
     synonyms: [
-      "tourism=museum",
       "museum",
       "Museum",
       "Art Museum",
@@ -43,8 +41,8 @@ const culture = {
     name: () => translate("Library"),
     icon: icons.library,
     parents: ["culture"],
+    selectors: ["amenity=library"],
     synonyms: [
-      "amenity=library",
       "library",
       "Library",
       "Other library",
@@ -58,8 +56,8 @@ const culture = {
     name: () => translate("Arts center"),
     icon: icons.artGallery,
     parents: ["culture"],
+    selectors: ["amenity=arts_centre"],
     synonyms: [
-      "amenity=arts_centre",
       "300-3000-0024",
       "800-8400-0176",
       "Art Studio",
@@ -75,8 +73,8 @@ const culture = {
     name: () => translate("Artwork"),
     icon: icons.artGallery,
     parents: ["culture"],
+    selectors: ["tourism=artwork"],
     synonyms: [
-      "tourism=artwork",
       "Outdoor Sculpture",
       "Public Art",
       "Sculpture Garden",
@@ -89,21 +87,16 @@ const culture = {
     name: () => translate("Art Gallery"),
     icon: icons.artGallery,
     parents: ["culture"],
-    synonyms: [
-      "tourism=gallery",
-      "Art Gallery",
-      "Museum oder Galerie",
-      "art_gallery",
-      "gallery",
-    ],
+    selectors: ["tourism=gallery"],
+    synonyms: ["Art Gallery", "Museum oder Galerie", "art_gallery", "gallery"],
   },
 
   place_of_worship: {
     name: () => translate("Place Of Worship"),
     icon: icons.placeOfWorship,
     parents: ["culture"],
+    selectors: ["amenity=place_of_worship"],
     synonyms: [
-      "amenity=place_of_worship",
       "300-3200-0000",
       "300-3200-0030",
       "300-3200-0031",
@@ -114,7 +107,6 @@ const culture = {
       "300-3200-0375",
       "Ashram",
       "Buddhist Temple",
-      "Cemetery",
       "Cemevi",
       "Church",
       "Confucian Temple",
@@ -147,8 +139,8 @@ const culture = {
     name: () => translate("Theater"),
     icon: icons.theatre,
     parents: ["culture"],
+    selectors: ["amenity=theatre"],
     synonyms: [
-      "amenity=theatre",
       "200-2200-0000",
       "200-2200-0020",
       "Amphitheater",

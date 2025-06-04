@@ -6,8 +6,8 @@ const leisure = {
     name: () => translate("Leisure"),
     icon: icons.theatre,
     priority: 40,
+    selectors: ["leisure=*"],
     synonyms: [
-      "leisure=*",
       "200-2000-0015",
       "200-2000-0016",
       "200-2000-0017",
@@ -49,7 +49,6 @@ const leisure = {
       "Pool Hall",
       "Pool or Snooker",
       "Racecourse",
-      "Racetrack",
       "Recreation Centre",
       "Resort",
       "Rest Area",
@@ -61,7 +60,6 @@ const leisure = {
       "Skating Rink",
       "Wellness Centre & Services",
       "circus",
-      "spa",
     ],
   },
 
@@ -69,50 +67,52 @@ const leisure = {
     name: () => translate("Outdoor Seating"),
     icon: icons.highwayRestArea,
     parents: ["leisure"],
-    synonyms: ["leisure=outdoor_seating"],
+    selectors: ["leisure=outdoor_seating"],
   },
 
   dog_park: {
     name: () => translate("Dog Park"),
     icon: icons.dogPark,
     parents: ["leisure"],
-    synonyms: ["leisure=dog_park", "Dog park", "Dog Run"],
+    selectors: ["leisure=dog_park"],
+    synonyms: ["Dog park", "Dog Run"],
   },
 
   shower: {
     name: () => translate("Shower"),
     icon: icons.toilet,
     parents: ["accommodation", "leisure", "public_transfer"],
-    synonyms: ["amenity=shower", "shower"],
+    selectors: ["amenity=shower"],
+    synonyms: ["shower"],
   },
 
   picnic_table: {
     name: () => translate("Picnic table"),
     icon: icons.highwayRestArea,
     parents: ["leisure", "tourism"],
-    synonyms: ["leisure=picnic_table"],
+    selectors: ["leisure=picnic_table"],
   },
 
   allotments: {
     name: () => translate("Allotments"),
     icon: icons.village,
     parents: ["leisure"],
-    synonyms: ["landuse=allotments"],
+    selectors: ["landuse=allotments"],
   },
 
   bbq: {
     name: () => translate("Barbecue"),
     icon: icons.bbq,
     parents: ["tourism", "leisure"],
-    synonyms: ["amenity=bbq"],
+    selectors: ["amenity=bbq"],
   },
 
   cinema: {
     name: () => translate("Cinema"),
     icon: icons.cinema,
     parents: ["leisure"],
+    selectors: ["amenity=cinema"],
     synonyms: [
-      "amenity=cinema",
       "200-2100-0019",
       "Cinema",
       "Drive-in Theater",
@@ -129,24 +129,24 @@ const leisure = {
     name: () => translate("Brothel"),
     icon: icons.heart,
     parents: ["leisure"],
-    synonyms: ["amenity=brothel", "200-2000-0306", "Adult Entertainment"],
+    selectors: ["amenity=brothel"],
+    synonyms: ["200-2000-0306", "Adult Entertainment"],
   },
 
   massage: {
     name: () => translate("Massage Studio"),
     icon: icons.hospital,
     parents: ["leisure"],
-    synonyms: ["shop=massage", "Bath House", "Massage Studio", "Spa", "spa"],
+    selectors: ["shop=massage"],
+    synonyms: ["Bath House", "Massage Studio", "Spa", "spa"],
   },
 
   playground: {
     name: () => translate("Playground / Play equipment"),
     icon: icons.playground,
     parents: ["leisure"],
+    selectors: ["leisure=playground", "playground=*"],
     synonyms: [
-      "leisure=playground",
-      "playground=*",
-      "College Rec Center",
       "Indoor Play Area",
       "Playground",
       "Recreation Center",
@@ -158,8 +158,8 @@ const leisure = {
     name: () => translate("Zoo"),
     icon: icons.zoo,
     parents: ["leisure"],
+    selectors: ["tourism=zoo"],
     synonyms: [
-      "tourism=zoo",
       "550-5520-0208",
       "550-5520-0209",
       "550-5520-0210",
@@ -180,30 +180,29 @@ const leisure = {
     name: () => translate("Casino"),
     icon: icons.casino,
     parents: ["leisure"],
-    synonyms: [
-      "amenity=casino",
-      "200-2300-0000",
-      "200-2300-0021",
-      "Casino",
-      "casino",
-    ],
+    selectors: ["amenity=casino"],
+    synonyms: ["200-2300-0000", "200-2300-0021", "Casino", "casino"],
   },
 
   stripclub: {
     name: () => translate("Strip Club"),
     icon: icons.heart,
     parents: ["leisure"],
-    synonyms: ["amenity=stripclub", "Strip Club"],
+    selectors: ["amenity=stripclub"],
+    synonyms: ["Strip Club"],
   },
 
   park: {
     name: () => translate("Park/Garden"),
     icon: icons.park,
     parents: ["leisure"],
-    synonyms: [
-      "amenity=park",
+    selectors: [
       "leisure=park",
       "leisure=garden",
+      "amenity=park",
+      "landuse=recreation_ground",
+    ],
+    synonyms: [
       "550-5510-0202",
       "550-5510-0204",
       "Botanical Garden",
@@ -215,8 +214,6 @@ const leisure = {
       "Park or Recreation Ground",
       "Park",
       "Ranger Station",
-      "Water Park",
-      "landuse=recreation_ground",
       "national_park",
       "park",
     ],
@@ -233,15 +230,16 @@ const leisure = {
     name: () => translate("Sauna"),
     icon: icons.hotSpring,
     parents: ["leisure"],
-    synonyms: ["leisure=sauna", "Sauna / Steam Room"],
+    selectors: ["leisure=sauna"],
+    synonyms: ["Sauna / Steam Room"],
   },
 
   nightclub: {
     name: () => translate("Night Club"),
     icon: icons.nightclub,
     parents: ["leisure"],
+    selectors: ["amenity=nightclub"],
     synonyms: [
-      "amenity=nightclub",
       "Ballroom",
       "Country Dance Club",
       "Dance Studio",
@@ -256,12 +254,11 @@ const leisure = {
     name: () => translate("Community Center"),
     icon: icons.circle, // TODO: find proper icon, there's a custom one
     parents: ["leisure"],
+    selectors: ["amenity=community_centre"],
     synonyms: [
-      "amenity=community_centre",
       "800-8100-0169",
       "800-8400-0000",
       "900-9200-0299",
-      "City Hall",
       "Civic or Community Center",
       "Club House",
       "Collective Community",

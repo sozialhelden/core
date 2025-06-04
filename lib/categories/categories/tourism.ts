@@ -5,8 +5,8 @@ const tourism = {
   tourism: {
     name: () => translate("Tourism"),
     icon: icons.castle,
+    selectors: ["tourism=*"],
     synonyms: [
-      "tourism=*",
       "350-3500-0304",
       "350-3510-0236",
       "350-3510-0237",
@@ -38,7 +38,6 @@ const tourism = {
       "Nature Preserve",
       "Off-Road Vehicle Area",
       "Off-road Trailhead",
-      "Palace",
       "Pedestrian Plaza",
       "Rafting",
       "Summer Camp",
@@ -48,7 +47,6 @@ const tourism = {
       "Tourist Information",
       "Trailhead",
       "Walking Path Trailhead",
-      "information=board",
       "tourism",
     ],
   },
@@ -57,7 +55,7 @@ const tourism = {
     name: () => translate("Information"),
     icon: icons.information,
     parents: ["tourism", "accommodation", "public_transfer"],
-    synonyms: [
+    selectors: [
       "information=audioguide",
       "information=board",
       "information=guidepost",
@@ -71,22 +69,22 @@ const tourism = {
     name: () => translate("Animal"),
     icon: icons.attraction,
     parents: ["tourism", "leisure"],
-    synonyms: ["attraction=animal"],
+    selectors: ["attraction=animal"],
   },
 
   telephone: {
     name: () => translate("Telephone"),
     icon: icons.telephone,
     parents: ["tourism", "shopping", "public_transfer"],
-    synonyms: ["amenity=telephone"],
+    selectors: ["amenity=telephone"],
   },
 
   attraction: {
     name: () => translate("Tourist Attraction"),
     icon: icons.attraction,
     parents: ["tourism"],
+    selectors: ["tourism=attraction"],
     synonyms: [
-      "tourism=attraction",
       "300-3000-0000",
       "300-3000-0023",
       "300-3000-0231",
@@ -110,8 +108,8 @@ const tourism = {
     name: () => translate("Memorial"),
     icon: icons.historic,
     parents: ["tourism"],
+    selectors: ["historic=memorial"],
     synonyms: [
-      "historic=memorial",
       "300-3000-0025",
       "Historical Monument",
       "Memorial Site",
@@ -125,8 +123,8 @@ const tourism = {
     name: () => translate("Viewpoint"),
     icon: icons.viewpoint,
     parents: ["tourism"],
+    selectors: ["tourism=viewpoint"],
     synonyms: [
-      "tourism=viewpoint",
       "350-3510-0238",
       "350-3520-0224",
       "400-4300-0308",
@@ -147,19 +145,19 @@ const tourism = {
     name: () => translate("Castle"),
     icon: icons.castle,
     parents: ["tourism"],
-    synonyms: ["historic=castle", "Castle"],
+    selectors: ["historic=castle"],
+    synonyms: ["Castle"],
   },
 
   beach: {
     name: () => translate("Beach"),
     icon: icons.beach,
     parents: ["tourism"],
+    selectors: ["natural=beach"],
     synonyms: [
-      "natural=beach",
       "550-5510-0205",
       "550-5510-0243",
       "Bay",
-      "Beach",
       "Beach",
       "Nudist Beach",
       "Surf Life Savings Club",
@@ -172,19 +170,18 @@ const tourism = {
     name: () => translate("Cave Entrance"),
     icon: icons.mountain,
     parents: ["tourism"],
-    synonyms: ["natural=cave_entrance", "Cave", "cave_entrance"],
+    selectors: ["natural=cave_entrance"],
+    synonyms: ["Cave", "cave_entrance"],
   },
 
   themepark: {
     name: () => translate("Theme Park"),
     icon: icons.playground,
     parents: ["tourism"],
+    selectors: ["tourism=theme_park"],
     synonyms: [
-      "tourism=theme_park",
-      "500-5100-0059",
       "550-5520-0000",
       "550-5520-0207",
-      "Holiday Camp",
       "Theme Park Ride / Attraction",
       "Theme Park or Holiday Camp",
       "Theme Park",
@@ -197,7 +194,7 @@ const tourism = {
     name: () => translate("Archaeological Site"),
     icon: icons.historic,
     parents: ["tourism"],
-    synonyms: ["historic=archaeological_site"],
+    selectors: ["historic=archaeological_site"],
   },
 } as const;
 

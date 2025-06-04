@@ -30,8 +30,8 @@ const food = {
     name: () => translate("Restaurant"),
     icon: icons.restaurant,
     parents: ["food"],
+    selectors: ["amenity=restaurant"],
     synonyms: [
-      "amenity=restaurant",
       "100-1000-0000",
       "100-1000-0001",
       "100-1000-0002",
@@ -72,7 +72,6 @@ const food = {
       "Belgian Restaurant",
       "Bengali Restaurant",
       "Betawinese Restaurant",
-      "Bistro",
       "Bistro",
       "Blini House",
       "Borek Place",
@@ -125,7 +124,6 @@ const food = {
       "Diner",
       "Dizi Place",
       "Donburi Restaurant",
-      "Doner Restaurant",
       "Doner Restaurant",
       "Dongbei Restaurant",
       "Dosa Place",
@@ -350,7 +348,6 @@ const food = {
       "Vietnamese Restaurant",
       "Wagashi Place",
       "West-Ukrainian Restaurant",
-      "Winery",
       "Xinjiang Restaurant",
       "Yakitori Restaurant",
       "Yoshoku Restaurant",
@@ -366,15 +363,15 @@ const food = {
     name: () => translate("Canteen"),
     icon: icons.restaurant,
     parents: ["food"],
-    synonyms: ["amenity=canteen"],
+    selectors: ["amenity=canteen"],
   },
 
   coffee: {
     name: () => translate("Cafe"),
     icon: icons.cafe,
     parents: ["food"],
+    selectors: ["amenity=cafe"],
     synonyms: [
-      "amenity=cafe",
       "100-1000-0007",
       "100-1100-0000",
       "100-1100-0010",
@@ -398,16 +395,16 @@ const food = {
     name: () => translate("Bar"),
     icon: icons.bar,
     parents: ["food"],
-    synonyms: ["amenity=pub", "Apres Ski Bar", "Irish Pub", "Pub", "bar"],
+    selectors: ["amenity=pub"],
+    synonyms: ["Apres Ski Bar", "Irish Pub", "Pub", "bar"],
   },
 
   fastfood: {
     name: () => translate("Fast Food"),
     icon: icons.fastFood,
     parents: ["food"],
+    selectors: ["amenity=fast_food", "amenity=food_court"],
     synonyms: [
-      "amenity=fast_food",
-      "amenity=food_court",
       "Burger Joint",
       "Fast Food Restaurant",
       "Fish & Chips Shop",
@@ -432,8 +429,8 @@ const food = {
     name: () => translate("Bar"),
     icon: icons.bar,
     parents: ["food", "leisure"],
+    selectors: ["amenity=bar"],
     synonyms: [
-      "amenity=bar",
       "200-2000-0000",
       "200-2000-0011",
       "200-2000-0012",
@@ -452,7 +449,6 @@ const food = {
       "Cocktail Bar",
       "Cocktail Lounge",
       "Dance Hall or Studio",
-      "Distillery",
       "Gay Bar",
       "Hookah Bar",
       "Hotel Bar",
@@ -482,26 +478,24 @@ const food = {
     name: () => translate("Ice Cream Shop"),
     icon: icons.iceCream,
     parents: ["food"],
-    synonyms: [
-      "amenity=ice_cream",
-      "Frozen Yogurt Shop",
-      "Ice Cream Shop",
-      "ice_cream",
-    ],
+    selectors: ["amenity=ice_cream"],
+    synonyms: ["Frozen Yogurt Shop", "Ice Cream Shop", "ice_cream"],
   },
 
   biergarten: {
     name: () => translate("Beer Garden"),
     icon: icons.beer,
     parents: ["food"],
-    synonyms: ["amenity=biergarten", "Beer Garden"],
+    selectors: ["amenity=biergarten"],
+    synonyms: ["Beer Garden"],
   },
 
   drinkingwater: {
     name: () => translate("Drinking Water"),
     icon: icons.drinkingWater,
     parents: ["food"],
-    synonyms: ["amenity=drinking_water", "drinking_water"],
+    selectors: ["amenity=drinking_water"],
+    synonyms: ["drinking_water"],
   },
 } as const;
 

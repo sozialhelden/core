@@ -5,8 +5,8 @@ const toilets = {
   toilets: {
     name: () => translate("Toilets"),
     icon: icons.toilet,
+    selectors: ["amenity=toilets"],
     synonyms: [
-      "amenity=toilets",
       "800-8700-0198",
       "Eurokey-Anlage",
       "Public Bathroom",

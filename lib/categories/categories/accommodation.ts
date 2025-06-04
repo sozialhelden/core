@@ -21,21 +21,16 @@ const accommodation = {
     name: () => translate("Bed'n'Breakfast"),
     icon: icons.lodging,
     parents: ["accommodation"],
-    synonyms: [
-      "tourism=bed_and_breakfast",
-      "500-5100-0058",
-      "Bed & Breakfast",
-      "Bed & Breakfast",
-      "bed_and_breakfast",
-    ],
+    selectors: ["tourism=bed_and_breakfast"],
+    synonyms: ["500-5100-0058", "Bed & Breakfast", "bed_and_breakfast"],
   },
 
   dormitory: {
     name: () => translate("Dormitory"),
     icon: icons.lodging,
     parents: ["accommodation"],
+    selectors: ["building=dormitory"],
     synonyms: [
-      "building=dormitory",
       "Boarding House",
       "College Residence Hall",
       "Fraternity House",
@@ -49,15 +44,16 @@ const accommodation = {
     name: () => translate("Motel"),
     icon: icons.lodging,
     parents: ["accommodation"],
-    synonyms: ["tourism=motel", "500-5000-0054", "Motel"],
+    selectors: ["tourism=motel"],
+    synonyms: ["500-5000-0054", "Motel"],
   },
 
   chalet: {
     name: () => translate("Chalet"),
     icon: icons.lodging,
     parents: ["accommodation"],
+    selectors: ["tourism=chalet"],
     synonyms: [
-      "tourism=chalet",
       "500-5100-0354",
       "Hütte",
       "Mountain Huts",
@@ -71,15 +67,16 @@ const accommodation = {
     name: () => translate("Caravan Site"),
     icon: icons.car,
     parents: ["accommodation"],
-    synonyms: ["tourism=caravan_site", "rv_park", "RV Park", "Trailer Park"],
+    selectors: ["tourism=caravan_site"],
+    synonyms: ["rv_park", "RV Park", "Trailer Park"],
   },
 
   hotel: {
     name: () => translate("Hotel"),
     icon: icons.lodging,
     parents: ["accommodation"],
+    selectors: ["tourism=hotel"],
     synonyms: [
-      "tourism=hotel",
       "500-5000-0053",
       "500-5100-0000",
       "500-5100-0060",
@@ -99,8 +96,8 @@ const accommodation = {
     name: () => translate("Camp Site"),
     icon: icons.campsite,
     parents: ["accommodation"],
+    selectors: ["tourism=camp_site"],
     synonyms: [
-      "tourism=camp_site",
       "500-5100-0056",
       "500-5100-0059",
       "550-5510-0378",
@@ -117,8 +114,8 @@ const accommodation = {
     name: () => translate("Guest House"),
     icon: icons.lodging,
     parents: ["accommodation"],
+    selectors: ["tourism=guest_house"],
     synonyms: [
-      "tourism=guest_house",
       "500-5100-0057",
       "Ferienhaus oder Ferienwohnung",
       "Gruppenunterkünfte",
@@ -132,7 +129,8 @@ const accommodation = {
     name: () => translate("Hostel"),
     icon: icons.lodging,
     parents: ["accommodation"],
-    synonyms: ["tourism=hostel", "500-5100-0055", "Hostel", "hostel"],
+    selectors: ["tourism=hostel"],
+    synonyms: ["500-5100-0055", "Hostel", "hostel"],
   },
 } as const;
 
