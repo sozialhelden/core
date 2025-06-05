@@ -98,5 +98,15 @@ export function getTopLevelCategories(): Partial<
 export function getChildCategories(
   parent: Category,
 ): Partial<Record<Category, CategoryBaseProperties>> {
-  return categoryFilter((_, { parents }) => Boolean(parents?.includes(parent)));
+  const children = categoryFilter((_, { parents }) =>
+    Boolean(parents?.includes(parent)),
+  );
+
+  return {
+    ...children,
+    ...Object.keys(children).reduce(
+      (acc, child) => Object.assign(acc, getChildCategories(child as Category)),
+      {} as Partial<Record<Category, CategoryBaseProperties>>,
+    ),
+  };
 }
