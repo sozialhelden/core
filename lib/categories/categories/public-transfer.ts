@@ -53,12 +53,6 @@ const publicTransfer = {
     priority: 30,
   },
 
-  stop: {
-    name: () => translate("Stop"),
-    icon: icons.bus,
-    parents: ["public_transfer"],
-  },
-
   station: {
     name: () => translate("Transit Station"),
     icon: icons.rail, // TODO: find proper icon
@@ -287,7 +281,7 @@ const publicTransfer = {
   bus_stop: {
     name: () => translate("Bus Stop"),
     icon: icons.bus,
-    parents: ["public_transfer"],
+    parents: ["platform"],
     selectors: ["highway=bus_stop"],
     synonyms: [
       "400-4100-0036",
