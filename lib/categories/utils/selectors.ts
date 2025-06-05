@@ -17,7 +17,9 @@ function calculateSpecificity(
   selector: OsmTagValuePair,
   category: Category,
 ): number {
-  return getHierarchyLevel(category) * (selector.endsWith("=*") ? 1 : 10);
+  return (
+    10 * (getHierarchyLevel(category) - (selector.endsWith("=*") ? 0.5 : 0))
+  );
 }
 
 type SelectorList = [

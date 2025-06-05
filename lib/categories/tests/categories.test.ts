@@ -229,7 +229,7 @@ describe("selectors", () => {
       "amenity=accommodation": { category: "accommodation", specificity: 10 },
       "amenity=culture": { category: "culture", specificity: 10 },
       "amenity=hotel": { category: "accommodation", specificity: 10 },
-      "food=*": { category: "food", specificity: 1 },
+      "food=*": { category: "food", specificity: 5 },
       "food=restaurant": { category: "restaurant", specificity: 20 },
       "cuisine=thai": { category: "thai", specificity: 30 },
     });
