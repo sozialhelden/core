@@ -100,6 +100,14 @@ describe("categories", () => {
         name: translatorMock,
         parents: ["accommodation"],
       },
+      hotel_room: {
+        name: translatorMock,
+        parents: ["hotel"],
+      },
+      hotel_room_shower: {
+        name: translatorMock,
+        parents: ["hotel_room"],
+      },
       food: {
         name: translatorMock,
         hide: true,
@@ -117,6 +125,12 @@ describe("categories", () => {
         name: translatorMock,
       },
       bar: {
+        name: translatorMock,
+      },
+      hotel_room: {
+        name: translatorMock,
+      },
+      hotel_room_shower: {
         name: translatorMock,
       },
     });
