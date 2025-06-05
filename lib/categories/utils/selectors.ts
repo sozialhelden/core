@@ -5,16 +5,53 @@ import {
   getCategories,
 } from "~/lib/categories/categories";
 
-export function getSelectorMap(): Map<OsmTagValuePair, Category> {
-  return Object.entries(getCategories()).reduce(
-    (acc, [category, { selectors }]) => {
+function getHierarchyLevel(category: Category): number {
+  const { parents } = getCategories()[category];
+  if (!parents?.length) {
+    return 1;
+  }
+  return Math.max(...parents.map(getHierarchyLevel)) + 1;
+}
+
+function calculateSpecificity(
+  selector: OsmTagValuePair,
+  category: Category,
+): number {
+  return getHierarchyLevel(category) * (selector.endsWith("=*") ? 1 : 10);
+}
+
+type SelectorList = [
+  OsmTagValuePair,
+  { category: Category; specificity: number },
+][];
+
+export function getPrioritizedSelectorList(): SelectorList {
+  return Object.entries(getCategories())
+    .reduce((acc, [category, { selectors }]) => {
       for (const selector of selectors ?? []) {
-        acc.set(selector, category as Category);
+        acc.push([
+          selector,
+          {
+            category: category as Category,
+            specificity: calculateSpecificity(selector, category as Category),
+          },
+        ]);
       }
       return acc;
-    },
-    new Map<OsmTagValuePair, Category>(),
-  );
+    }, [] as SelectorList)
+    .sort((a, b) => {
+      return b[1].specificity - a[1].specificity;
+    });
+}
+
+export function getSelectorMap(): Map<
+  OsmTagValuePair,
+  { category: Category; specificity: number }
+> {
+  return getPrioritizedSelectorList().reduce((acc, [selector, properties]) => {
+    acc.set(selector, properties);
+    return acc;
+  }, new Map<OsmTagValuePair, { category: Category; specificity: number }>());
 }
 
 /**
@@ -34,20 +71,23 @@ export function findCategoryByOSMTags(
         return getSelectorMap().get(wildCardSelector);
       }
     })
-    .filter(Boolean)
-    .map((category) => {
+    .filter((item) => !!item)
+    .sort((a, b) => {
+      return b.specificity - a.specificity;
+    })
+    .map(({ category }) => {
       return {
         ...getCategories()[category as Category],
         id: category,
       } as CategoryProperties;
     });
 
-  return (
-    categories.shift() || {
-      ...getCategories().unknown,
-      id: "unknown",
-    }
-  );
+  const unknownCategory: CategoryProperties = {
+    ...getCategories().unknown,
+    id: "unknown",
+  };
+
+  return categories.shift() || unknownCategory;
 }
 
 /**
@@ -60,13 +100,8 @@ export function generateCategoryByOSMTagsSQLStatement(
   tableName: string,
   jsonColumnName?: string,
 ): string {
-  const whenStatements = Array.from(getSelectorMap().entries())
-    // make sure the wildcard selectors are at the very end, so more specific
-    // selector are matched first
-    .sort(([selectorA], [selectorB]) => {
-      return selectorA.endsWith("=*") ? 1 : selectorB.endsWith("=*") ? -1 : 0;
-    })
-    .map(([selector, category]) => {
+  const whenStatements = getPrioritizedSelectorList().map(
+    ([selector, { category }]) => {
       const [key, value] = selector.split("=");
 
       if (jsonColumnName) {
@@ -78,7 +113,8 @@ export function generateCategoryByOSMTagsSQLStatement(
       return value === "*"
         ? `WHEN ${tableName}.'${key}' IS NOT NULL THEN '${category}'`
         : `WHEN ${tableName}.'${key}' = '${value}' THEN '${category}'`;
-    });
+    },
+  );
 
   return `CASE\n${whenStatements.join("\n")}\nELSE\n'unknown'\nEND`;
 }
