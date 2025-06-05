@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/sozialhelden/core/compare/v1.1.0...v2.0.0) (2025-06-05)
+
+
+* refactor!: split synonyms into osm selectors and generic synonyms ([f15969c](https://github.com/sozialhelden/core/commit/f15969cebe76700f77f3c4edd69e92c57b09484c))
+
+
+### BREAKING CHANGES
+
+* `synonyms` no longer contain OSM tag value pairs. If
+you are using OSM data, make sure to use the newly added
+`findCategoryByOSMTags` or `generateCategoryByOSMTagsSQLStatement`
+functions instead.
+
 # [1.1.0](https://github.com/sozialhelden/core/compare/v1.0.0...v1.1.0) (2025-06-04)
 
 
