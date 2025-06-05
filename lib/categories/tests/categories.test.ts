@@ -213,18 +213,25 @@ describe("selectors", () => {
     restaurant: {
       name: () => "",
       selectors: ["food=restaurant"],
+      parents: ["food"],
+    },
+    thai: {
+      name: () => "",
+      selectors: ["cuisine=thai"],
+      parents: ["restaurant"],
     },
   };
 
-  test("it returns a map of configured selectors", async () => {
+  test("it returns a map of configured selectors with their specificity", async () => {
     accommodationMock.mockReturnValue(mock);
     const { getSelectorMap } = await import("~/lib/categories/utils/selectors");
     expect(mapToObject(getSelectorMap())).toMatchObject({
-      "amenity=accommodation": "accommodation",
-      "amenity=culture": "culture",
-      "amenity=hotel": "accommodation",
-      "food=*": "food",
-      "food=restaurant": "restaurant",
+      "amenity=accommodation": { category: "accommodation", specificity: 10 },
+      "amenity=culture": { category: "culture", specificity: 10 },
+      "amenity=hotel": { category: "accommodation", specificity: 10 },
+      "food=*": { category: "food", specificity: 1 },
+      "food=restaurant": { category: "restaurant", specificity: 20 },
+      "cuisine=thai": { category: "thai", specificity: 30 },
     });
   });
 
@@ -239,6 +246,10 @@ describe("selectors", () => {
       { osmTags: { iDoNoExists: "foo" }, expectedCategory: "unknown" },
       { osmTags: { food: "restaurant" }, expectedCategory: "restaurant" },
       { osmTags: { food: "something" }, expectedCategory: "food" },
+      {
+        osmTags: { food: "restaurant", cuisine: "thai" },
+        expectedCategory: "thai",
+      },
     ]) {
       test(`${JSON.stringify(osmTags)} -> "${expectedCategory}"`, async () => {
         accommodationMock.mockReturnValue(mock);
@@ -254,17 +265,18 @@ describe("selectors", () => {
     }
   });
 
-  test("it generates a SQL statement to query a category by OSM tags", async () => {
+  test("it generates a SQL statement to query a category by OSM tags ordered by specificity", async () => {
     accommodationMock.mockReturnValue(mock);
     const { generateCategoryByOSMTagsSQLStatement } = await import(
       "~/lib/categories/utils/selectors"
     );
     expect(generateCategoryByOSMTagsSQLStatement("a")).toBe(
       `CASE
+WHEN a.'cuisine' = 'thai' THEN 'thai'
+WHEN a.'food' = 'restaurant' THEN 'restaurant'
 WHEN a.'amenity' = 'accommodation' THEN 'accommodation'
 WHEN a.'amenity' = 'hotel' THEN 'accommodation'
 WHEN a.'amenity' = 'culture' THEN 'culture'
-WHEN a.'food' = 'restaurant' THEN 'restaurant'
 WHEN a.'food' IS NOT NULL THEN 'food'
 ELSE
 'unknown'
@@ -279,10 +291,11 @@ END`,
     );
     expect(generateCategoryByOSMTagsSQLStatement("a", "tags")).toBe(
       `CASE
+WHEN a.tags->'cuisine' = 'thai' THEN 'thai'
+WHEN a.tags->'food' = 'restaurant' THEN 'restaurant'
 WHEN a.tags->'amenity' = 'accommodation' THEN 'accommodation'
 WHEN a.tags->'amenity' = 'hotel' THEN 'accommodation'
 WHEN a.tags->'amenity' = 'culture' THEN 'culture'
-WHEN a.tags->'food' = 'restaurant' THEN 'restaurant'
 WHEN a.tags ? 'food' THEN 'food'
 ELSE
 'unknown'
