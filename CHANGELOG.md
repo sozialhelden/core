@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/sozialhelden/core/compare/v2.0.0...v2.1.0) (2025-06-10)
+
+
+### Bug Fixes
+
+* multi level hierarchy in categories ([1a20bee](https://github.com/sozialhelden/core/commit/1a20bee68d112d53e0b211ffaed3ebd59591b7ae))
+
+
+### Features
+
+* take selector specificity into account when selecting a category ([3abd59e](https://github.com/sozialhelden/core/commit/3abd59ee3bef46324e6e66b6cd78f94308ab3f91))
+
 # [2.0.0](https://github.com/sozialhelden/core/compare/v1.1.0...v2.0.0) (2025-06-05)
 
 
