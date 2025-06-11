@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/sozialhelden/core/compare/v2.1.0...v2.1.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* entrypoints ([324ca58](https://github.com/sozialhelden/core/commit/324ca58dab5dd1687a01d9e4fcf49e9404d874e7))
+
 # [2.1.0](https://github.com/sozialhelden/core/compare/v2.0.0...v2.1.0) (2025-06-10)
 
 
