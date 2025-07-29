@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/sozialhelden/core/compare/v2.2.0...v2.2.1) (2025-07-29)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([0624198](https://github.com/sozialhelden/core/commit/0624198a038a1f6aac8c0836f148270fed8c301a))
+
 # [2.2.0](https://github.com/sozialhelden/core/compare/v2.1.1...v2.2.0) (2025-07-29)
 
 
