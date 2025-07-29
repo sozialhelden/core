@@ -1,8 +1,7 @@
 name: Tests
 on:
   pull_request:
-    branches:
-      - main
+  merge_group:
 
 jobs:
   run_tests_and_checks:
