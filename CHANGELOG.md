@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/sozialhelden/core/compare/v2.1.1...v2.2.0) (2025-07-29)
+
+
+### Features
+
+* add language tags / locale utilities ([34bdd6c](https://github.com/sozialhelden/core/commit/34bdd6c45b840d2662e3dedf5149ee77b758d702))
+
 ## [2.1.1](https://github.com/sozialhelden/core/compare/v2.1.0...v2.1.1) (2025-06-11)
 
 
