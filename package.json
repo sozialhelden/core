@@ -32,7 +32,8 @@
     "release": "semantic-release"
   },
   "dependencies": {
-    "@mapbox/maki": "^8.2.0"
+    "@mapbox/maki": "^8.2.0",
+    "@sozialhelden/ietf-language-tags": "^5.4.2"
   },
   "peerDependencies": {
     "react": "^18.2.0",
