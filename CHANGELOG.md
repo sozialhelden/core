@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/sozialhelden/core/compare/v2.2.2...v2.2.3) (2025-08-28)
+
+
+### Bug Fixes
+
+* add support for react 19.1 ([b9b6f61](https://github.com/sozialhelden/core/commit/b9b6f61263cd5ba55844ea3a634a865e53a0b65d))
+
 ## [2.2.2](https://github.com/sozialhelden/core/compare/v2.2.1...v2.2.2) (2025-08-28)
 
 
