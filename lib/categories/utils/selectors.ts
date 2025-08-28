@@ -1,8 +1,8 @@
 import {
   type Category,
   type CategoryProperties,
-  type OsmTagValuePair,
   getCategories,
+  type OsmTagValuePair,
 } from "~/lib/categories/categories";
 
 function getHierarchyLevel(category: Category): number {
@@ -72,6 +72,7 @@ export function findCategoryByOSMTags(
       if (getSelectorMap().has(wildCardSelector)) {
         return getSelectorMap().get(wildCardSelector);
       }
+      return false;
     })
     .filter((item) => !!item)
     .sort((a, b) => {
