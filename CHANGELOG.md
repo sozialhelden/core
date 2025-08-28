@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/sozialhelden/core/compare/v2.2.1...v2.2.2) (2025-08-28)
+
+
+### Bug Fixes
+
+* don't pin peer deps ([ccad3bd](https://github.com/sozialhelden/core/commit/ccad3bd564887e8a55c1c644528e7c284fd120b5))
+
 ## [2.2.1](https://github.com/sozialhelden/core/compare/v2.2.0...v2.2.1) (2025-07-29)
 
 
