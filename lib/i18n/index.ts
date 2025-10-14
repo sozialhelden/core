@@ -1,7 +1,8 @@
-export * from "./utils/translator";
 export * from "./utils/headers";
 export * from "./utils/language-tags";
 export * from "./utils/locales";
+export * from "./utils/translations";
+export * from "./utils/translator";
 
 export const configuredLanguageTags = {
   // arabic
