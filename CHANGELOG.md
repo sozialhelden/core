@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/sozialhelden/core/compare/v2.2.3...v2.3.0) (2025-10-14)
+
+
+### Features
+
+* add getTranslations utility ([c320be8](https://github.com/sozialhelden/core/commit/c320be826a95eabd7a9f45f68fe06c7c111d8550))
+
 ## [2.2.3](https://github.com/sozialhelden/core/compare/v2.2.2...v2.2.3) (2025-08-28)
 
 
