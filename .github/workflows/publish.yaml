@@ -15,11 +15,11 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v5.0.1
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6.4.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
